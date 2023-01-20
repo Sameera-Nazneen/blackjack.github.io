@@ -16,10 +16,10 @@ function buildCards(asArray=true){
         {
             let value = values[j];
             let suit = suits[i];
-            let packarr = value + 'of' +suit;
+            let op = value + 'of' +suit;
             op.toString();
-            packArr.push(packarr);
-            packObj[packarr] = j+1;
+            packArr.push(op);
+            packObj[op] = j+1;
         }
     }
 
@@ -47,6 +47,7 @@ class Deck {
      */
     reset() {
         // write your code here
+        return this.reset = buildCards();
 
     } //End of reset()
 
@@ -56,7 +57,13 @@ class Deck {
      */
     shuffle() {
         // write your code here
-        
+        for (let i = this.deck.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * i);
+            let temp = this.deck[i];
+            this.deck[i] = this.deck[j];
+            this.deck[j] = temp;
+        }
+        return this.deck;
     } //End of shuffle()
 
     /**
@@ -65,6 +72,7 @@ class Deck {
      */
     deal() {
         // write your code here
+        return this.deck.pop();
 
     } //End of deal()
 
@@ -74,6 +82,8 @@ class Deck {
      */
     isEmpty() {
         // write your code here
+        if(this.deck.length == 0)
+            return ;
 
     } //End of isEmpty()
 
@@ -83,6 +93,7 @@ class Deck {
      */
     length() {
         // write your code here
+        return this.deck.length;
 
     } //End of length()
 
@@ -173,7 +184,7 @@ function initialDeal() {
 
 
     // Getting player cards total - show an alert only if there is a Blackjack
-    /*
+    
     // Alert to show Blackjack
         cuteAlert({
             type: "success",
@@ -184,7 +195,7 @@ function initialDeal() {
         }).then(() => {
             location.reload()  // Load a new game
         })
-    */
+    
 
     // write your code here
 
@@ -221,10 +232,10 @@ function hit() {
 
     // Dealing new cards 
     // Use conditional block
-    /*
-    When 4 cards are dealed use the following code
+
+    //When 4 cards are dealed use the following code
         dealButton.style.display = 'none'
-        // Alert - Max. Cards dealed
+        Alert - Max. Cards dealed
         cuteAlert({
             type: "warning",
             title: "Sorry...",
@@ -232,7 +243,7 @@ function hit() {
             buttonText: "OK",
             img:"warning.svg"
         })
-    */
+    
 
     // write your code here
 
