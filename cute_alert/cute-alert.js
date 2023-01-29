@@ -197,3 +197,4 @@ const cuteToast = ({ type, title, message, timer = 5000,  vibrate = [], playSoun
 const id = () => {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
+
